@@ -1,9 +1,10 @@
+import java.util.LinkedList;
+import java.util.Scanner;
 public class BankingSystem {
     public static void main(String[] args)
     {
-
-        System.out.println("first");
-        System.out.println("Hellow this is the project for banking system");
+        BankAccount first = new BankAccount();
+        first.accountOpen(1, "aa", "aaa", "aaaa", "aaaa", "11", "123");
     }
 
     public void withdrawal()
@@ -21,18 +22,5 @@ public class BankingSystem {
 
     }
 
-    public void accountOpen()
-    {
 
-    }
-
-    public void accountDelete()
-    {
-
-    }
-
-    public void accountUpdate()
-    {
-
-    }
 }
