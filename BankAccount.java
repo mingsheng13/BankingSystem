@@ -1,26 +1,41 @@
 import java.util.LinkedList;
 
-public class BankAccount {
-    LinkedList<String> user = new LinkedList<String>();;
-
-    public void accountOpen(String name)
+class accountDetails
+{
+    int id;
+    String lastName;
+    String firstName;
+    String phone_number;
+    String email;
+    String age;
+    String date_of_create;
+    public accountDetails(int id, String lastName, String firstName, String phone_number, String email, String age, String date_of_create)
     {
-        user.add(name);
+        this.id = id; this.lastName = lastName; this.firstName = firstName; this.phone_number = phone_number; this.email = email; this.age = age; this.date_of_create = date_of_create;
+    }
+    
+    
+}
+public class BankAccount 
+{
+    LinkedList<accountDetails> user = new LinkedList<accountDetails>();;
 
-
+    public void accountOpen(int id, String lastName, String firstName, String phone_number, String email, String age, String date_of_create)
+    {
+        accountDetails tmp = new accountDetails(id, lastName, firstName, phone_number, email, age, date_of_create);
+        user.add(tmp);
+        System.out.println(user.getFirst().toString());
     }
 
 
     public void accountDelete(String name)
     {
-        user.remove(user.indexOf(name));
-        System.out.println("User ("+name+") has been remove");
+        
 
     }
 
     public void accountUpdate(String name,String update)
     {
-        user.set(user.indexOf(name),update);
-        System.out.println("User ("+name+") has change to ("+update+")");
+
     }
 }
