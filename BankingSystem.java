@@ -1,9 +1,17 @@
 
 public class BankingSystem {
+
+
+
     public static void main(String[] args)
     {
         BankAccount first = new BankAccount();
-        first.accountOpen(1, 0,"aa", "aaa", "aaaa", "aaaa", "11", "123");
+        first.accountOpen();
+
+        first.accountOpen();
+
+        first.showAllAccounts();
+
     }
 
     public void withdrawal()
@@ -18,7 +26,7 @@ public class BankingSystem {
 
     public void checkBalance()
     {
-
+        //
     }
 
 
