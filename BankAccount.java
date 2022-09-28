@@ -4,21 +4,21 @@ import java.util.Date;
 
 class accountDetails    //a class for storing data types needed for a bank account
 {
-    int id;
-    int balance;
-    int age;
-    String lastName;
-    String firstName;
-    String phone_number;
-    String email;
+    private int id;
+    private long balance;
+    private int age;
+    private String lastName;
+    private String firstName;
+    private String phone_number;
+    private String email;
+    private String date_of_create;
 
-    String date_of_create;
-
+    //setter
     public void setID(int id)
     {
         this.id = id;
     }
-    public void setBalance(int bal)
+    public void setBalance(long bal)
     {
         this.balance = bal;
     }
@@ -47,7 +47,40 @@ class accountDetails    //a class for storing data types needed for a bank accou
         Date today = new Date();
         this.date_of_create = today.toString();
     }
-    
+
+    //getter
+    public int getID()
+    {
+        return id;
+    }
+    public long getBalance()
+    {
+        return balance;
+    }
+    public String getLastName()
+    {
+        return lastName;
+    }
+    public String getFirstName()
+    {
+        return firstName;
+    }
+    public String getPhone_number()
+    {
+        return phone_number;
+    }
+    public String getEmail()
+    {
+        return email;
+    }
+    public int getAge()
+    {
+        return age;
+    }
+    public String getDate_of_create()
+    {
+        return date_of_create;
+    }
     
 }
 public class BankAccount 
@@ -87,12 +120,13 @@ public class BankAccount
         this.id++;
 
         System.out.println("Account successfully created!");
-        System.out.println("ID: "+ tmp.id);
-        System.out.println("Name: "+ tmp.firstName + " " +tmp.lastName);
-        System.out.println("Age: "+tmp.age);
-        System.out.println("Phone Number: "+tmp.phone_number);
-        System.out.println("Email: "+ tmp.email);
+        System.out.println("ID: "+ tmp.getID());
+        System.out.println("Name: "+ tmp.getFirstName() + " " +tmp.getLastName());
+        System.out.println("Age: "+tmp.getAge());
+        System.out.println("Phone Number: "+tmp.getPhone_number());
+        System.out.println("Email: "+ tmp.getEmail());
         System.out.println("");
+
     }
 
     //method for showing all accounts
@@ -101,18 +135,28 @@ public class BankAccount
         System.out.println("----------------------------------");
         System.out.println("Showing all accounts: ");
         for (accountDetails accountDetails : user) {
-            System.out.println("Id: "+ accountDetails.id);
-            System.out.println("Name: " + accountDetails.firstName + " " + accountDetails.lastName);
-            System.out.println("Age: " + accountDetails.age);
-            System.out.println("Phone Number: " + accountDetails.phone_number);
-            System.out.println("Email: " + accountDetails.email);
-            System.out.println("Date created: " + accountDetails.date_of_create);
+            System.out.println("Id: "+ accountDetails.getID());
+            System.out.println("Name: " + accountDetails.getFirstName() + " " + accountDetails.getLastName());
+            System.out.println("Balance: " + accountDetails.getBalance());
+            System.out.println("Age: " + accountDetails.getAge());
+            System.out.println("Phone Number: " + accountDetails.getPhone_number());
+            System.out.println("Email: " + accountDetails.getEmail());
+            System.out.println("Date created: " + accountDetails.getDate_of_create());
         }
         System.out.println("");
     }
     public void accountDelete(String name)
     {
         System.out.println("Delete account: ");
+        int userToDelete = 0;
+        for (int i = 0; i < user.size(); i++) {
+            if(user.get(i).getID() == userToDelete)
+            {
+                user.remove(i);
+                break;
+            }
+        }
+        //to be finished..
     }
 
     public void accountUpdate(String name,String update)
